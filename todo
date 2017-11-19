@@ -1,0 +1,41 @@
+landing_page [login, book room]
+
+book_room_design
+{
+    enter [name, address, phone, email, room_type]
+    enter [arrival_date, departure_date]
+    show phone as username and email as password
+    return homepage
+}
+
+book_room_javascript
+{
+    mandatory [name, address, phone, email, arrival_date, departure_date]
+    check [arrival_date < departure_date]
+}
+
+login
+{
+    show username and password field
+    if correct login
+    {
+        if user:
+            show booking status [waiting, confirmed + room_no, unavailable]
+        elif admin:
+            show admin page
+    }
+    else
+    {
+        popup to reenter correct credentials
+    }
+}
+
+admin_page
+{
+    room_search_select [All, Booked, Requested, logout]
+}
+
+search_results
+{
+    room_buttons [grant_request, deny, vacate]
+}
