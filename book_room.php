@@ -113,12 +113,82 @@
             }
         }
         ?>
+
+        <script>
+            // validate the form function
+            function validateForm()
+            {
+                // ensure check-in date is earlier than check-out date
+                var check_in_date = Date.parse(document.forms["booking_form"]["check_in_date"].value);
+                var check_out_date = Date.parse(document.forms["booking_form"]["check_out_date"].value);
+
+                if(check_out_date - check_in_date < 0)
+                {
+                    alert("Invalid dates!");
+                    return false;
+                }
+
+                // check for empty fields begin
+                if(document.forms["booking_form"]["name"].value == "")
+                {
+                    alert("Name must be filled!");
+                    return false;
+                }
+
+                if(document.forms["booking_form"]["email"].value == "")
+                {
+                    alert("E-Mail must be filled!");
+                    return false;
+                }
+
+                if(document.forms["booking_form"]["address"].value == "")
+                {
+                    alert("Address must be filled!");
+                    return false;
+                }
+
+                if(document.forms["booking_form"]["phone"].value == "")
+                {
+                    alert("Phone number must be filled!");
+                    return false;
+                }
+
+                if(document.forms["booking_form"]["check_in_date"].value == "")
+                {
+                    alert("Check in date must be filled!")
+                    return false;
+                }
+
+                if(document.forms["booking_form"]["check_out_date"].value == "")
+                {
+                    alert("Check out date must be filled!");
+                    return false;
+                }
+                //check for empty fields end
+
+                // check for invalid email
+                if(document.forms["booking_form"]["email"].value.indexOf("@") == -1 ||
+                    document.forms["booking_form"]["email"].value.indexOf(".") == -1)
+                {
+                    alert("Enter a valid E-Mail address!");
+                    return false;
+                }
+
+                // check for valid phone number
+                if(isNaN(document.forms["booking_form"]["phone"].value) ||
+                    document.forms["booking_form"]["phone"].value.length != 10)
+                {
+                    alert("Enter a valid phone number!");
+                    return false;
+                }
+            }
+        </script>
         
     </head>
 
     <body>
 
-        <form class="booking_form" method="POST" action="#">
+        <form name="booking_form" class="booking_form" method="POST" action="#" onsubmit="return validateForm()">
             <label for="name">Name</label>
             <input type="text" name="name"> <br>
 

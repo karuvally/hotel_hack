@@ -43,11 +43,28 @@
             }
         ?>
 
+        <script>
+            function validateForm()
+            {
+                if(document.forms["login_form"]["username"].value == "")
+                {
+                    alert("Username must be filled!");
+                    return false;
+                }
+
+                if(document.forms["login_form"]["password"].value == "")
+                {
+                    alert("Password must be filled!");
+                    return false;
+                }
+            }
+        </script>
+
     </head>
 
     <body>
 
-        <form class="login_form" method="POST" action="#">
+        <form name="login_form" class="login_form" method="POST" action="#" onsubmit="return validateForm()">
             <label for="username">Username</label>
             <input type="text" name="username">
             <br>
