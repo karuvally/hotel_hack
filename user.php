@@ -13,14 +13,21 @@
         $booking_info_result = mysqli_query($connection, $room_id_query);
         $booking_info_readable = mysqli_fetch_array($booking_info_result);
 
-        if($booking_info_readable["confirmed"] == True)
+        if(mysqli_num_rows($booking_info_result) == 0)
+        {
+            echo "No rooms available at the moment :(";
+        }
+        
+        elseif($booking_info_readable["confirmed"] == True)
         {
             echo "Room: " . $booking_info_readable["room_id"] ."Confirmed!";
         }
-        else
+        
+        elseif($booking_info_readable["confirmed"] == False)
         {
             echo "You are in waiting list :(";
         }
+
         ?>
         
     </head>
