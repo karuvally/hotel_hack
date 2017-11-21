@@ -111,5 +111,9 @@
             </form>
         </div>
 
+        <form class="logout_form" method = "POST" action="home.php">
+            <input type="submit" value="Logout">
+        </form>
+
     </body>
 </html>

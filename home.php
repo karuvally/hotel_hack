@@ -5,6 +5,13 @@
         <title>Mandriva - Home</title>
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
 
+        <?php
+            if($_SERVER["REQUEST_METHOD"] == "POST")
+            {
+                session_destroy();
+            }
+        ?>
+
     </head>
 
     <body>
