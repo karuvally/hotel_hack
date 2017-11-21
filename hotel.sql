@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 20, 2017 at 06:58 PM
+-- Generation Time: Nov 21, 2017 at 12:43 AM
 -- Server version: 10.1.26-MariaDB-0+deb9u1
 -- PHP Version: 7.0.19-1
 
@@ -32,17 +32,17 @@ CREATE TABLE `booking_info` (
   `user_id` bigint(20) NOT NULL,
   `check_in_date` date NOT NULL,
   `check_out_date` date NOT NULL,
-  `Confirmed` tinyint(1) NOT NULL DEFAULT '0'
+  `confirmed` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `booking_info`
 --
 
-INSERT INTO `booking_info` (`booking_id`, `room_id`, `user_id`, `check_in_date`, `check_out_date`, `Confirmed`) VALUES
+INSERT INTO `booking_info` (`booking_id`, `room_id`, `user_id`, `check_in_date`, `check_out_date`, `confirmed`) VALUES
 (2, 1, 1511049646, '2017-11-19', '2017-11-20', 0),
 (3, 6, 1511049679, '2017-11-19', '2017-11-20', 0),
-(5, 2, 1511051055, '2017-11-19', '2017-11-20', 0),
+(5, 2, 1511051055, '2017-11-19', '2017-11-20', 1),
 (6, 7, 1511051626, '2017-11-19', '2017-11-20', 0),
 (7, 8, 1511053792, '2017-11-19', '2017-11-20', 0),
 (8, 3, 1511054845, '2017-11-19', '2017-11-20', 0);
@@ -164,7 +164,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `booking_info`
 --
 ALTER TABLE `booking_info`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `rooms`
 --

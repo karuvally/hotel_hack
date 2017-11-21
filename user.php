@@ -10,7 +10,8 @@
         include("database.php");
 
         $booking_info_query = "select room_id, confirmed from booking_info where user_id='" . $_SESSION["user_id"] . "'";
-        $booking_info_result = mysqli_query($connection, $room_id_query);
+
+        $booking_info_result = mysqli_query($connection, $booking_info_query);
         $booking_info_readable = mysqli_fetch_array($booking_info_result);
 
         if(mysqli_num_rows($booking_info_result) == 0)
